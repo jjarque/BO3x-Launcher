@@ -23,9 +23,9 @@ Requires legitimate Black Ops 3 copy.
 
 ## Requirements
 
-OS: Windows 10/11 (x64)
-BO3: Legitimate copy
-.NET: 8.0 Desktop Runtime (included)
+- OS: Windows 10/11 (x64)
+- BO3: Legitimate copy
+- .NET: 8.0 Desktop Runtime (included)
 
 ## Legal Notice
 
