@@ -1,0 +1,37 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main, dev ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: windows-latest
+    
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup .NET 8
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '8.0.x'
+    
+    - name: Restore dependencies
+      run: dotnet restore src/BO3xLauncher.csproj
+    
+    - name: Build
+      run: dotnet build src/BO3xLauncher.csproj --no-restore --configuration Release
+    
+    - name: Test syntax & analyze
+      run: dotnet format src/BO3xLauncher.csproj --verify-no-changes --verbosity diagnostic
+    
+    - name: Publish
+      run: dotnet publish src/BO3xLauncher.csproj -c Release -r win-x64 --self-contained -p:PublishSingleFile=true -o publish/
+    
+    - name: Upload build artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: bo3x-launcher-windows
+        path: publish/
