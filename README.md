@@ -54,10 +54,10 @@ Documentation is still in progress. For now, please refer to the source code and
 
 ## Development Status
 
-Launcher UI: TBD
-Backend API: TBD
-Client Anticheat: TBD
-Server Tools: TBD
+- Launcher UI: TBD
+- Backend API: TBD
+- Client Anticheat: TBD
+- Server Tools: TBD
 
 ## Credits
 
